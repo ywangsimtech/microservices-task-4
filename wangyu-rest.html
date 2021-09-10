@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REST Client</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+</head>
+<body>
+
+    <!--<table>
+        <tr>            
+            <th>id</th>
+			<th>name</th>
+			<th>username</th>
+			<th>email</th>
+            <th>address</th>
+            <th>phone</th>
+			<th>website</th>
+			<th>company</th>
+        </tr>
+        <tbody id="table"></tbody>
+    </table>-->
+	<button onclick="load()">Press to Load Table</button>
+		<table id = "table">
+		</table>
+  
+  
+	<script src="https://unpkg.com/jquery"></script>
+	<script type="text/javascript">
+			function load() {
+				var table = document.getElementById("table");  
+
+				var tbody = document.createElement("tbody");
+				table.appendChild(tbody);
+				
+				array.forEach(function(items) {
+				  var row = document.createElement("tr");
+				  items.forEach(function(item) {
+					var cell = document.createElement("td");
+					cell.textContent = item;
+					row.appendChild(cell);
+				  });
+				  tbody.appendChild(row);
+				  
+				});
+			
+		}
+	      var array = new Array();
+		  fetch('https://jsonplaceholder.typicode.com/users')
+		  .then(response => response.json())
+		  .then(data => 
+		  
+		     $.each(data, function (i, item) {
+                  var valueToPush = new Array();
+                  valueToPush[0] = item.id;
+				  valueToPush[1] = item.name;
+				  valueToPush[2] = item.username;
+				  valueToPush[3] = item.email;
+				  valueToPush[4] = 'street:'+item.address.street+' suite:'+ item.address.suite +' city:'+ item.address.city +' zipcode:'+item.address.zipcode;
+				  valueToPush[5] = item.phone;
+				  valueToPush[6] = item.website;
+				  valueToPush[7] = 'name:'+item.company.name+' catchPhrase:'+item.company.catchPhrase+' bs:'+item.company.bs;
+                  array.push(valueToPush);
+				}
+				));
+				
+		   var table = document.getElementById("table");  
+
+			var tbody = document.createElement("tbody");
+			table.appendChild(tbody);
+			
+			array.forEach(function(items) {
+			  var row = document.createElement("tr");
+			  items.forEach(function(item) {
+				var cell = document.createElement("td");
+				cell.textContent = item;
+				row.appendChild(cell);
+			  });
+			  tbody.appendChild(row);
+			  
+			});
+			  
+		  console.log(array)
+		  
+		 
+		  
+		
+	</script>
+</body>
+</html>
