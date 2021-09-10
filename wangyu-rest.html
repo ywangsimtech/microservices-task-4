@@ -23,7 +23,7 @@
         <tbody id="table"></tbody>
     </table>-->
 	<button onclick="load()">Press to Load Table</button>
-		<table id = "table">
+		<table id = "table"  class="table table-striped table-dark">
 		</table>
   
   
@@ -60,7 +60,7 @@
 				  valueToPush[3] = item.email;
 				  valueToPush[4] = 'street:'+item.address.street+' suite:'+ item.address.suite +' city:'+ item.address.city +' zipcode:'+item.address.zipcode;
 				  valueToPush[5] = item.phone;
-				  valueToPush[6] = item.website;
+				 valueToPush[6] = 'website:' +item.website;
 				  valueToPush[7] = 'name:'+item.company.name+' catchPhrase:'+item.company.catchPhrase+' bs:'+item.company.bs;
                   array.push(valueToPush);
 				}
